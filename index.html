@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Alvany Agudelo – Enfermería a Domicilio Medellín</title>
+<meta name="description" content="Auxiliar de Enfermería a domicilio en Medellín. Inyectología, curaciones, sueroterapia, cuidado personal. Disponible 24h. WhatsApp: 314 804 4748"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --cream:#FDF8F3;
+  --warm:#F5EDE0;
+  --rose:#E8707A;
+  --rose-d:#C9525C;
+  --rose-l:#FDEEF0;
+  --sage:#4A7C6F;
+  --sage-l:#E8F3F0;
+  --gold:#C9923A;
+  --gold-l:#FDF3E7;
+  --ink:#1C1410;
+  --mid:#6B5B4E;
+  --soft:#A89585;
+  --border:#EDE0D4;
+  --white:#FFFFFF;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden;}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:1rem 4rem;
+  background:rgba(253,248,243,0.92);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+}
+.nav-brand{display:flex;align-items:center;gap:.75rem;}
+.nav-cross{
+  width:36px;height:36px;border-radius:50%;
+  background:linear-gradient(135deg,var(--rose),var(--rose-d));
+  display:flex;align-items:center;justify-content:center;
+  font-size:15px;color:#fff;
+  box-shadow:0 4px 12px rgba(232,112,122,.3);
+}
+.nav-name{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--ink);letter-spacing:.01em;}
+.nav-role{font-size:.68rem;color:var(--soft);display:block;letter-spacing:.04em;}
+.nav-links{display:flex;gap:2.5rem;list-style:none;}
+.nav-links a{font-size:.8rem;font-weight:500;color:var(--mid);text-decoration:none;letter-spacing:.02em;transition:color .2s;}
+.nav-links a:hover{color:var(--rose);}
+.nav-wa{
+  display:flex;align-items:center;gap:.5rem;
+  background:var(--rose);color:#fff;
+  padding:.6rem 1.3rem;border-radius:99px;
+  font-size:.8rem;font-weight:600;text-decoration:none;
+  box-shadow:0 4px 16px rgba(232,112,122,.35);
+  transition:all .2s;
+}
+.nav-wa:hover{background:var(--rose-d);transform:translateY(-1px);box-shadow:0 6px 20px rgba(232,112,122,.4);}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;padding-top:72px;
+  display:grid;grid-template-columns:1fr 1fr;
+  position:relative;
+  overflow:hidden;
+  align-items:center;
+  box-sizing:border-box;
+  width:100%;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 20%, rgba(232,112,122,.08) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 10% 80%, rgba(74,124,111,.06) 0%, transparent 50%),
+    var(--cream);
+}
+.blob{
+  position:absolute;border-radius:50%;filter:blur(60px);pointer-events:none;z-index:0;
+}
+.blob-1{width:300px;height:300px;top:-50px;right:0;background:rgba(232,112,122,.1);}
+.blob-2{width:250px;height:250px;bottom:0;left:5%;background:rgba(74,124,111,.07);}
+.blob-3{display:none;}
+
+.hero-left{
+  display:flex;flex-direction:column;justify-content:center;
+  padding:3rem 2rem 3rem 5rem;
+  position:relative;z-index:2;
+  min-width:0;overflow:hidden;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:.5rem;
+  margin-bottom:1.75rem;
+}
+.eyebrow-dot{width:8px;height:8px;border-radius:50%;background:var(--sage);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.6;transform:scale(1.3);}}
+.eyebrow-text{font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--sage);}
+
+.hero-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.4rem,4vw,3.6rem);
+  font-weight:300;line-height:1.1;
+  color:var(--ink);margin-bottom:1rem;
+}
+.hero-title .line-accent{
+  font-style:italic;color:var(--rose);
+  display:block;
+}
+.hero-title .line-bold{font-weight:600;}
+
+.hero-quote{
+  display:flex;align-items:flex-start;gap:.75rem;
+  margin-bottom:1.75rem;
+}
+.quote-line{width:3px;height:100%;background:linear-gradient(to bottom,var(--rose),var(--gold));border-radius:2px;flex-shrink:0;min-height:44px;}
+.quote-text{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;color:var(--mid);line-height:1.6;}
+
+.hero-desc{font-size:.92rem;line-height:1.85;color:var(--mid);max-width:400px;margin-bottom:2.25rem;}
+
+.hero-actions{display:flex;gap:.875rem;flex-wrap:wrap;margin-bottom:2.5rem;}
+.btn-main{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:var(--rose);color:#fff;
+  padding:.9rem 1.75rem;border-radius:99px;
+  font-size:.85rem;font-weight:600;text-decoration:none;
+  box-shadow:0 6px 20px rgba(232,112,122,.35);
+  transition:all .2s;
+}
+.btn-main:hover{background:var(--rose-d);transform:translateY(-2px);box-shadow:0 10px 28px rgba(232,112,122,.4);}
+.btn-sec{
+  display:inline-flex;align-items:center;gap:.5rem;
+  color:var(--ink);border:1.5px solid var(--border);
+  padding:.9rem 1.75rem;border-radius:99px;
+  font-size:.85rem;font-weight:500;text-decoration:none;
+  background:var(--white);transition:all .2s;
+}
+.btn-sec:hover{border-color:var(--rose);color:var(--rose);}
+
+.hero-pills{display:flex;flex-wrap:wrap;gap:.5rem;}
+.pill{
+  display:flex;align-items:center;gap:.4rem;
+  background:var(--white);border:1px solid var(--border);
+  padding:.35rem .9rem;border-radius:99px;
+  font-size:.75rem;color:var(--mid);font-weight:500;
+}
+
+.hero-right{
+  display:flex;align-items:center;justify-content:center;
+  padding:3rem 3rem 3rem 1rem;
+  position:relative;z-index:2;
+  min-width:0;overflow:hidden;
+}
+.card-stack{position:relative;width:100%;max-width:300px;margin:0 auto;}
+.main-card{
+  background:var(--white);border-radius:24px;
+  box-shadow:0 20px 60px rgba(28,20,16,.12),0 4px 16px rgba(28,20,16,.06);
+  overflow:hidden;
+}
+.card-top{
+  background:linear-gradient(135deg,var(--rose) 0%,var(--rose-d) 50%,#A83545 100%);
+  padding:2rem;text-align:center;position:relative;overflow:hidden;
+}
+.card-top::before{
+  content:'';position:absolute;top:-40px;right:-40px;
+  width:150px;height:150px;border-radius:50%;
+  background:rgba(255,255,255,.08);
+}
+.card-top::after{
+  content:'';position:absolute;bottom:-30px;left:-30px;
+  width:100px;height:100px;border-radius:50%;
+  background:rgba(255,255,255,.06);
+}
+.card-emoji{font-size:3.5rem;display:block;margin-bottom:.75rem;position:relative;z-index:1;}
+.card-cname{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:#fff;position:relative;z-index:1;}
+.card-crole{font-size:.78rem;color:rgba(255,255,255,.8);margin-top:4px;position:relative;z-index:1;letter-spacing:.04em;}
+.card-cavail{
+  display:inline-flex;align-items:center;gap:.4rem;
+  background:rgba(255,255,255,.2);color:#fff;
+  padding:.3rem .85rem;border-radius:99px;font-size:.7rem;font-weight:600;
+  margin-top:.75rem;position:relative;z-index:1;
+}
+.card-body{padding:1.5rem;}
+.card-svc-list{display:flex;flex-direction:column;gap:.5rem;margin-bottom:1.25rem;}
+.csvc{
+  display:flex;align-items:center;gap:.75rem;
+  padding:.6rem .875rem;border-radius:10px;
+  font-size:.8rem;color:var(--ink);font-weight:500;
+}
+.csvc-rose{background:var(--rose-l);}
+.csvc-sage{background:var(--sage-l);}
+.csvc-gold{background:var(--gold-l);}
+.csvc-plain{background:var(--cream);}
+.card-footer{
+  display:flex;align-items:center;justify-content:space-between;
+  padding-top:1.25rem;border-top:1px solid var(--border);
+}
+.card-rating{display:flex;align-items:center;gap:.4rem;font-size:.78rem;color:var(--mid);}
+.stars{color:#F59E0B;letter-spacing:1px;}
+.card-contact{font-size:.75rem;color:var(--sage);font-weight:600;}
+
+.float-card{display:none;}
+.fc-icon{font-size:1.2rem;}
+
+/* ── SERVICES ── */
+.services{padding:7rem 5rem;background:var(--white);}
+.sec-eyebrow{font-size:.7rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--rose);margin-bottom:.6rem;}
+.sec-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2rem,3vw,2.8rem);line-height:1.2;color:var(--ink);margin-bottom:3.5rem;}
+.sec-title strong{font-weight:600;}
+.sec-header-row{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem;flex-wrap:wrap;gap:1rem;}
+.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;}
+.svc-card{
+  border-radius:20px;padding:1.75rem;cursor:default;
+  transition:transform .25s,box-shadow .25s;
+  position:relative;overflow:hidden;
+}
+.svc-card::before{
+  content:'';position:absolute;inset:0;border-radius:20px;
+  background:linear-gradient(135deg,rgba(255,255,255,.5),rgba(255,255,255,0));
+  pointer-events:none;
+}
+.svc-card:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(28,20,16,.1);}
+.sc-rose{background:linear-gradient(135deg,#FDE8EA,#F9D0D4);}
+.sc-sage{background:linear-gradient(135deg,#E3F2EE,#C8E8E2);}
+.sc-gold{background:linear-gradient(135deg,#FDF0DC,#F7E0B8);}
+.sc-blue{background:linear-gradient(135deg,#E8F0FD,#D0E0F9);}
+.svc-emoji{font-size:2rem;margin-bottom:1.1rem;display:block;}
+.svc-name{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;color:var(--ink);margin-bottom:.5rem;}
+.svc-desc{font-size:.78rem;line-height:1.65;color:var(--mid);}
+
+/* ── SUERO HIGHLIGHT ── */
+.suero{
+  padding:7rem 5rem;
+  background:linear-gradient(135deg,var(--ink) 0%,#2D1F18 100%);
+  position:relative;overflow:hidden;
+  display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;
+}
+.suero::before{
+  content:'';position:absolute;top:-200px;right:-100px;
+  width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle,rgba(232,112,122,.15),transparent 60%);
+}
+.suero::after{
+  content:'';position:absolute;bottom:-150px;left:-100px;
+  width:400px;height:400px;border-radius:50%;
+  background:radial-gradient(circle,rgba(74,124,111,.1),transparent 60%);
+}
+.suero-content{position:relative;z-index:1;}
+.suero-tag{font-size:.7rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--rose);margin-bottom:.75rem;}
+.suero-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2.2rem,3.5vw,3rem);color:#fff;line-height:1.15;margin-bottom:1.25rem;}
+.suero-title strong{font-weight:600;font-style:italic;color:var(--rose);}
+.suero-desc{font-size:.9rem;line-height:1.85;color:rgba(255,255,255,.55);margin-bottom:2rem;}
+.benefit-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:2rem;}
+.benefit{
+  display:flex;align-items:flex-start;gap:.65rem;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);
+  border-radius:12px;padding:.875rem;
+}
+.bcheck{
+  width:20px;height:20px;border-radius:50%;
+  background:var(--rose);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:10px;flex-shrink:0;margin-top:1px;
+}
+.btext{font-size:.78rem;color:rgba(255,255,255,.7);line-height:1.4;}
+
+.suero-visual{
+  position:relative;z-index:1;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:24px;padding:2.5rem;text-align:center;
+}
+.suero-big-emoji{font-size:5rem;display:block;margin-bottom:1.25rem;}
+.suero-vtitle{font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:#fff;font-weight:400;margin-bottom:.5rem;}
+.suero-vsub{font-size:.82rem;color:rgba(255,255,255,.5);line-height:1.65;margin-bottom:1.75rem;}
+.suero-cta-btn{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:var(--rose);color:#fff;
+  padding:.85rem 2rem;border-radius:99px;
+  font-size:.85rem;font-weight:600;text-decoration:none;
+  box-shadow:0 6px 20px rgba(232,112,122,.4);
+  transition:all .2s;
+}
+.suero-cta-btn:hover{background:var(--rose-d);transform:translateY(-2px);}
+
+/* ── ABOUT ── */
+.about{
+  padding:7rem 5rem;background:var(--warm);
+  display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;
+}
+.about-text{font-size:.93rem;line-height:1.9;color:var(--mid);margin-bottom:1rem;}
+.feat-list{display:flex;flex-direction:column;gap:.75rem;margin-top:1.75rem;}
+.feat{display:flex;align-items:flex-start;gap:.75rem;}
+.feat-icon{
+  width:28px;height:28px;border-radius:8px;
+  background:var(--rose-l);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.8rem;flex-shrink:0;margin-top:1px;
+}
+.feat-text{font-size:.84rem;color:var(--ink);line-height:1.5;}
+
+.about-card{
+  background:var(--white);border-radius:24px;
+  padding:2.25rem;
+  box-shadow:0 8px 32px rgba(28,20,16,.07);
+}
+.insta-link{
+  display:flex;align-items:center;gap:1rem;
+  background:linear-gradient(135deg,#F5E6FF,#FDEEF0);
+  border-radius:14px;padding:1.1rem 1.25rem;
+  text-decoration:none;margin-bottom:1.25rem;
+  transition:opacity .2s;
+}
+.insta-link:hover{opacity:.85;}
+.ig-icon{
+  width:42px;height:42px;border-radius:12px;
+  background:linear-gradient(135deg,#C13584,#E1306C,#F56040);
+  display:flex;align-items:center;justify-content:center;font-size:1.1rem;
+}
+.ig-handle{font-weight:600;font-size:.9rem;color:var(--ink);}
+.ig-sub{font-size:.72rem;color:var(--soft);}
+.stats-2x2{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;}
+.stat-box{
+  border-radius:14px;padding:1.1rem;text-align:center;
+}
+.sb-rose{background:var(--rose-l);}
+.sb-sage{background:var(--sage-l);}
+.sb-gold{background:var(--gold-l);}
+.sb-ink{background:rgba(28,20,16,.04);}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:var(--ink);display:block;}
+.stat-lbl{font-size:.7rem;color:var(--soft);margin-top:2px;}
+
+/* ── CONTACT ── */
+.contact{padding:7rem 5rem;display:grid;grid-template-columns:1fr 1fr;gap:5rem;}
+.contact-left .sec-title{margin-bottom:.5rem;}
+.contact-desc{font-size:.9rem;line-height:1.8;color:var(--mid);margin-bottom:2rem;}
+.clink-cards{display:flex;flex-direction:column;gap:.875rem;}
+.clink{
+  display:flex;align-items:center;gap:1rem;
+  background:var(--white);border:1px solid var(--border);
+  border-radius:14px;padding:1rem 1.25rem;
+  text-decoration:none;transition:all .2s;
+}
+.clink:hover{border-color:var(--rose);box-shadow:0 4px 16px rgba(232,112,122,.12);transform:translateX(4px);}
+.clink-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+.ci-wa{background:#E6FAF0;}
+.ci-mail{background:var(--blue-l,#EAF0FF);}
+.ci-ig{background:#FDE8EF;}
+.clink-label{font-size:.68rem;color:var(--soft);text-transform:uppercase;letter-spacing:.06em;}
+.clink-val{font-size:.88rem;color:var(--ink);font-weight:600;}
+
+.form-wrap{background:var(--white);border-radius:24px;padding:2.25rem;box-shadow:0 8px 32px rgba(28,20,16,.07);}
+.fg{margin-bottom:.95rem;}
+.fg label{display:block;font-size:.73rem;font-weight:600;color:var(--mid);margin-bottom:.4rem;letter-spacing:.03em;}
+.fg input,.fg select,.fg textarea{
+  width:100%;padding:.78rem 1rem;
+  background:var(--cream);border:1.5px solid var(--border);
+  border-radius:10px;font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:.85rem;color:var(--ink);outline:none;transition:all .2s;
+}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--rose);background:var(--white);box-shadow:0 0 0 3px rgba(232,112,122,.1);}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;}
+.fsubmit{
+  width:100%;padding:.95rem;
+  background:linear-gradient(135deg,var(--rose),var(--rose-d));
+  color:#fff;border:none;border-radius:99px;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:.88rem;font-weight:600;cursor:pointer;
+  box-shadow:0 6px 20px rgba(232,112,122,.35);
+  transition:all .2s;margin-top:.5rem;
+}
+.fsubmit:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(232,112,122,.4);}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--ink);
+  padding:2.5rem 5rem;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem;
+}
+.foot-brand{display:flex;align-items:center;gap:.75rem;}
+.foot-cross{width:32px;height:32px;border-radius:50%;background:var(--rose);display:flex;align-items:center;justify-content:center;font-size:13px;}
+.foot-name{font-family:'Cormorant Garamond',serif;font-size:1rem;color:#fff;font-weight:400;}
+.foot-sub{font-size:.68rem;color:rgba(255,255,255,.4);}
+.foot-copy{font-size:.72rem;color:rgba(255,255,255,.35);}
+.foot-links{display:flex;gap:1.75rem;list-style:none;}
+.foot-links a{font-size:.75rem;color:rgba(255,255,255,.4);text-decoration:none;transition:color .2s;}
+.foot-links a:hover{color:var(--rose);}
+
+/* ── ANIMATIONS ── */
+@keyframes slideUp{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
+.hero-eyebrow{animation:slideUp .6s ease .1s both;}
+.hero-title{animation:slideUp .6s ease .2s both;}
+.hero-quote{animation:slideUp .6s ease .28s both;}
+.hero-desc{animation:slideUp .6s ease .34s both;}
+.hero-actions{animation:slideUp .6s ease .4s both;}
+.hero-pills{animation:slideUp .6s ease .46s both;}
+.main-card{animation:slideUp .7s ease .35s both;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .svc-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:900px){
+  nav{padding:1rem 1.5rem;}
+  .nav-links{display:none;}
+  .hero,.suero,.about,.contact{grid-template-columns:1fr;}
+  .hero-left{padding:4rem 1.5rem 2rem;}
+  .hero-right{padding:1rem 1.5rem 3rem;}
+  .services,.suero,.about,.contact{padding:4rem 1.5rem;}
+  .benefit-grid{grid-template-columns:1fr;}
+  .float-card{display:none;}
+  footer{padding:2rem 1.5rem;flex-direction:column;text-align:center;}
+}
+@media(max-width:600px){
+  .svc-grid{grid-template-columns:1fr;}
+  .frow{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <div class="nav-cross">✚</div>
+    <div>
+      <span class="nav-name">Alvany Agudelo</span>
+      <span class="nav-role">AUX. ENFERMERÍA · @home.care1825</span>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#sueroterapia">Sueroterapia</a></li>
+    <li><a href="#nosotros">Nosotros</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <a href="https://wa.me/573148044748" target="_blank" class="nav-wa">📲 WhatsApp</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <div class="hero-left">
+    <div class="hero-eyebrow">
+      <div class="eyebrow-dot"></div>
+      <span class="eyebrow-text">Disponible 24 horas · Medellín</span>
+    </div>
+    <h1 class="hero-title">
+      <span class="line-accent">Enfermería</span>
+      <span class="line-bold">profesional</span>
+      en tu hogar
+    </h1>
+    <div class="hero-quote">
+      <div class="quote-line"></div>
+      <div class="quote-text">"Quien no vive para servir,<br>no sirve para vivir"</div>
+    </div>
+    <p class="hero-desc">Soy Alvany Agudelo, Auxiliar de Enfermería especializada en servicios domiciliarios. Inyectología, curaciones, sueroterapia y cuidado integral — con calidez, dedicación y profesionalismo.</p>
+    <div class="hero-actions">
+      <a href="https://wa.me/573148044748" target="_blank" class="btn-main">📲 Agendar por WhatsApp</a>
+      <a href="#servicios" class="btn-sec">Ver todos los servicios</a>
+    </div>
+    <div class="hero-pills">
+      <div class="pill">📞 314 804 4748</div>
+      <div class="pill">📧 homecare1825@gmail.com</div>
+      <div class="pill">📷 @home.care1825</div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="card-stack">
+      <div class="float-card fc-1"><span class="fc-icon">✅</span> Aux. Enfermería certificada</div>
+      <div class="main-card">
+        <div class="card-top">
+          <span class="card-emoji">👩‍⚕️</span>
+          <div class="card-cname">Alvany Agudelo</div>
+          <div class="card-crole">Auxiliar de Enfermería · Servicios Domiciliarios</div>
+          <div class="card-cavail">🟢 Disponible ahora</div>
+        </div>
+        <div class="card-body">
+          <div class="card-svc-list">
+            <div class="csvc csvc-rose">💉 Inyectología y sueroterapia</div>
+            <div class="csvc csvc-sage">🩹 Curaciones y vendajes</div>
+            <div class="csvc csvc-gold">🔬 Cambios de sonda vesical</div>
+            <div class="csvc csvc-plain">🧓 Cuidado personal integrado</div>
+            <div class="csvc csvc-plain">📋 Solicitud de citas y trámites</div>
+          </div>
+          <div class="card-footer">
+            <div class="card-rating"><span class="stars">★★★★★</span> 5.0 · Medellín</div>
+            <div class="card-contact">24h disponible</div>
+          </div>
+        </div>
+      </div>
+      <div class="float-card fc-2"><span class="fc-icon">💗</span> Cuidado con amor</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="servicios">
+  <div class="sec-header-row">
+    <div>
+      <div class="sec-eyebrow">¿Qué ofrezco?</div>
+      <h2 class="sec-title">Servicios de <strong>enfermería</strong><br>a domicilio</h2>
+    </div>
+    <a href="https://wa.me/573148044748" target="_blank" class="btn-main" style="height:fit-content;">📲 Solicitar servicio</a>
+  </div>
+  <div class="svc-grid">
+    <div class="svc-card sc-rose"><span class="svc-emoji">💉</span><div class="svc-name">Aplicación de medicamentos</div><div class="svc-desc">Inyecciones intramusculares, intravenosas y subcutáneas con material estéril en tu hogar.</div></div>
+    <div class="svc-card sc-sage"><span class="svc-emoji">🩹</span><div class="svc-name">Curaciones</div><div class="svc-desc">Limpieza, desinfección y vendaje profesional de heridas y lesiones post-quirúrgicas.</div></div>
+    <div class="svc-card sc-gold"><span class="svc-emoji">🔬</span><div class="svc-name">Cambios de sonda vesical</div><div class="svc-desc">Colocación y cambio de sondas con técnica aséptica y atención cuidadosa al paciente.</div></div>
+    <div class="svc-card sc-blue"><span class="svc-emoji">🧓</span><div class="svc-name">Cuidado personal integrado</div><div class="svc-desc">Higiene, movilización y acompañamiento para pacientes que requieren atención continua.</div></div>
+    <div class="svc-card sc-rose"><span class="svc-emoji">📋</span><div class="svc-name">Solicitar citas médicas</div><div class="svc-desc">Gestión y acompañamiento en solicitud de citas con especialistas y entidades de salud.</div></div>
+    <div class="svc-card sc-sage"><span class="svc-emoji">💊</span><div class="svc-name">Reclamar medicamentos</div><div class="svc-desc">Diligencias en farmacias para reclamar fórmulas médicas y medicamentos de la EPS.</div></div>
+    <div class="svc-card sc-gold"><span class="svc-emoji">🤝</span><div class="svc-name">Acompañamiento</div><div class="svc-desc">Acompañamiento a citas, procedimientos y hospitalización con presencia cercana y cálida.</div></div>
+    <div class="svc-card sc-blue"><span class="svc-emoji">💧</span><div class="svc-name">Sueroterapia IV</div><div class="svc-desc">Administración intravenosa de sueros y nutrientes para recuperación rápida del organismo.</div></div>
+  </div>
+</section>
+
+<!-- SUEROTERAPIA -->
+<section class="suero" id="sueroterapia">
+  <div class="suero-content">
+    <div class="suero-tag">✨ Servicio estrella</div>
+    <h2 class="suero-title">Sueroterapia<br><strong>intravenosa</strong><br>a domicilio</h2>
+    <p class="suero-desc">La terapia con suero es la administración intravenosa de nutrientes que reabastece tu cuerpo de manera más rápida y efectiva que cualquier tratamiento oral.</p>
+    <div class="benefit-grid">
+      <div class="benefit"><div class="bcheck">✓</div><div class="btext">Desintoxica tu cuerpo</div></div>
+      <div class="benefit"><div class="bcheck">✓</div><div class="btext">Fortalece el sistema inmunológico</div></div>
+      <div class="benefit"><div class="bcheck">✓</div><div class="btext">Reduce estrés, fatiga y migrañas</div></div>
+      <div class="benefit"><div class="bcheck">✓</div><div class="btext">Antienvejecimiento y control de peso</div></div>
+    </div>
+    <a href="https://wa.me/573148044748?text=Hola%20Alvany,%20quiero%20información%20sobre%20sueroterapia" target="_blank" class="btn-main">📲 Consultar precio ahora</a>
+  </div>
+  <div class="suero-visual">
+    <span class="suero-big-emoji">💧</span>
+    <div class="suero-vtitle">Sueroterapia a Domicilio</div>
+    <div class="suero-vsub">Recuperación rápida y efectiva sin salir de casa. Procedimiento 100% seguro, estéril y con atención personalizada.</div>
+    <a href="https://wa.me/573148044748?text=Hola%20Alvany,%20quiero%20información%20sobre%20sueroterapia" target="_blank" class="suero-cta-btn">📲 +57 314 804 4748</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="nosotros">
+  <div>
+    <div class="sec-eyebrow">Sobre mí</div>
+    <h2 class="sec-title">Cuidado con<br><strong>vocación y amor</strong></h2>
+    <p class="about-text">Soy Alvany Agudelo, Auxiliar de Enfermería comprometida con brindar atención médica domiciliaria de calidad en Medellín. Mi misión es que cada paciente reciba el cuidado que merece sin necesidad de salir de su hogar.</p>
+    <p class="about-text">Cuento con formación certificada y experiencia en atención domiciliaria, sueroterapia, curaciones y cuidado del paciente crónico y adulto mayor.</p>
+    <div class="feat-list">
+      <div class="feat"><div class="feat-icon">🕐</div><div class="feat-text">Disponibilidad 24 horas, los 7 días incluidos festivos</div></div>
+      <div class="feat"><div class="feat-icon">🧤</div><div class="feat-text">Materiales estériles y de alta calidad en cada visita</div></div>
+      <div class="feat"><div class="feat-icon">💗</div><div class="feat-text">Atención cálida, respetuosa y verdaderamente humana</div></div>
+      <div class="feat"><div class="feat-icon">📍</div><div class="feat-text">Cobertura en Medellín y toda el área metropolitana</div></div>
+    </div>
+  </div>
+  <div class="about-card">
+    <a href="https://instagram.com/home.care1825" target="_blank" class="insta-link">
+      <div class="ig-icon">📷</div>
+      <div><div class="ig-handle">@home.care1825</div><div class="ig-sub">Síguenos en Instagram</div></div>
+    </a>
+    <div class="stats-2x2">
+      <div class="stat-box sb-rose"><span class="stat-num">24h</span><span class="stat-lbl">Disponibilidad</span></div>
+      <div class="stat-box sb-sage"><span class="stat-num">7d</span><span class="stat-lbl">Incluye festivos</span></div>
+      <div class="stat-box sb-gold"><span class="stat-num">8+</span><span class="stat-lbl">Servicios</span></div>
+      <div class="stat-box sb-ink"><span class="stat-num">❤️</span><span class="stat-lbl">Con vocación</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contacto">
+  <div class="contact-left">
+    <div class="sec-eyebrow">¿Necesitas atención?</div>
+    <h2 class="sec-title">Agenda tu<br><strong>visita hoy</strong></h2>
+    <p class="contact-desc">Escríbeme y te respondo en minutos. Disponible por WhatsApp, correo e Instagram.</p>
+    <div class="clink-cards">
+      <a href="https://wa.me/573148044748" target="_blank" class="clink"><div class="clink-icon ci-wa">📲</div><div><div class="clink-label">WhatsApp</div><div class="clink-val">+57 314 804 4748</div></div></a>
+      <a href="mailto:homecare1825@gmail.com" class="clink"><div class="clink-icon ci-mail">📧</div><div><div class="clink-label">Correo electrónico</div><div class="clink-val">homecare1825@gmail.com</div></div></a>
+      <a href="https://instagram.com/home.care1825" target="_blank" class="clink"><div class="clink-icon ci-ig">📷</div><div><div class="clink-label">Instagram</div><div class="clink-val">@home.care1825</div></div></a>
+    </div>
+  </div>
+  <div class="form-wrap">
+    <div class="frow">
+      <div class="fg"><label>Nombre</label><input type="text" placeholder="Tu nombre"/></div>
+      <div class="fg"><label>Teléfono</label><input type="tel" placeholder="300 000 0000"/></div>
+    </div>
+    <div class="fg">
+      <label>Servicio requerido</label>
+      <select>
+        <option>Aplicación de medicamentos</option>
+        <option>Curaciones</option>
+        <option>Sueroterapia intravenosa</option>
+        <option>Cambio de sonda vesical</option>
+        <option>Cuidado personal integrado</option>
+        <option>Solicitud de citas médicas</option>
+        <option>Reclamar medicamentos</option>
+        <option>Acompañamiento</option>
+        <option>Otro</option>
+      </select>
+    </div>
+    <div class="frow">
+      <div class="fg"><label>Fecha</label><input type="date"/></div>
+      <div class="fg">
+        <label>Hora preferida</label>
+        <select>
+          <option>Mañana (6am–12pm)</option>
+          <option>Tarde (12pm–6pm)</option>
+          <option>Noche (6pm–10pm)</option>
+          <option>Urgencia (cualquier hora)</option>
+        </select>
+      </div>
+    </div>
+    <div class="fg"><label>Barrio / Dirección</label><input type="text" placeholder="Barrio o dirección en Medellín"/></div>
+    <div class="fg"><label>Mensaje adicional (opcional)</label><textarea rows="2" placeholder="Descripción del caso, alergias, indicaciones..."></textarea></div>
+    <button class="fsubmit" onclick="window.open('https://wa.me/573148044748?text=Hola%20Alvany,%20quiero%20agendar%20una%20visita','_blank')">Solicitar visita por WhatsApp 📲</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-brand">
+    <div class="foot-cross">✚</div>
+    <div>
+      <div class="foot-name">Alvany Agudelo</div>
+      <div class="foot-sub">Auxiliar de Enfermería · Servicios Domiciliarios · Medellín</div>
+    </div>
+  </div>
+  <div class="foot-copy">© 2024 home.care1825 · homecare1825@gmail.com</div>
+  <ul class="foot-links">
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#sueroterapia">Sueroterapia</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+</footer>
+
+</body>
+</html>
